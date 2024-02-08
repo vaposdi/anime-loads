@@ -49,16 +49,16 @@ class animeloads:
 
         if(browser == animeloads.CHROME):
             options = selenium.webdriver.chrome.options.Options()
-            options.headless = True
+            options.add_argument("--headless=new")
             if(browserloc != ""):
                 options.binary_location = browserloc
-            driver = webdriver.Chrome(service_log_path=os.devnull, options=options)
+            driver = webdriver.Chrome(options=options)
         elif(browser == animeloads.FIREFOX):
             options = selenium.webdriver.firefox.options.Options()
-            options.headless = True
+            options.add_argument("-headless")
             if(browserloc != ""):
                 options.binary_location = browserloc
-            driver = webdriver.Firefox(service_log_path=os.devnull, options=options)
+            driver = webdriver.Firefox(options=options)
         else:
             raise ALInvalidBrowserException("Nicht unterstützter Browser")
 
@@ -927,16 +927,16 @@ class anime():
         #Create Headless browser to bypass adblock detection
         if(browser == animeloads.CHROME):
             options = selenium.webdriver.chrome.options.Options()
-            options.headless = True
+            options.add_argument("--headless=new")
             if(browserlocation != ""):
                 options.binary_location = browserlocation
-            driver = webdriver.Chrome(service_log_path=os.devnull, options=options)
+            driver = webdriver.Chrome(options=options)
         elif(browser == animeloads.FIREFOX):
             options = selenium.webdriver.firefox.options.Options()
-            options.headless = True
+            options.add_argument("-headless")
             if(browserlocation != ""):
                 options.binary_location = browserlocation
-            driver = webdriver.Firefox(service_log_path=os.devnull, options=options)
+            driver = webdriver.Firefox(options=options)
         else:
             raise ALInvalidBrowserException("Nicht unterstützter Browser")
 
